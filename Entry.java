@@ -5,6 +5,9 @@
  * has entered with components stored in local variables. Further all 
  * validation of user input happens inside this class, but will throw 
  * exceptions that should be cought by the calling class.  
+ *
+ * Note: In the actual implementation this will have to be a nested class
+ * so that Journal can access it's private variables. 
  */
 public class Entry {
 
@@ -12,7 +15,7 @@ public class Entry {
    * This is a list of all the local variables for an entry. Each has an
    * accompanied comment explaining if any validation occurs and which
    * have getters and setters. Getter and setters will not be explicitly 
-   * written out although there will be one reference sample. All
+   * written out inside this header file however they are needed. All
    * getters and setters will be the standard getObject() and setObject().
    * Some of the setObject methods will throw exceptions if the input
    * is not valid, these will be noted. Some methods, which are
