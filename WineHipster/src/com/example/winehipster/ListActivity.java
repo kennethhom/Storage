@@ -9,7 +9,7 @@ import android.widget.Button;
 public class ListActivity extends Activity {
 	
 	private Button fakeEntry;
-	// sample comment 
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);

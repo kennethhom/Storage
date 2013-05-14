@@ -11,6 +11,7 @@ public class MainActivity extends Activity {
 
 	private Button viewEntriesButton;
 	private Button findWineryButton;
+	private Button messWithGit;
 	
 	// Sample comment
 	@Override
