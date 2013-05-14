@@ -33,7 +33,7 @@ public class MapActivity extends Activity {
 	private GoogleMap theMap;
 	private LocationManager locMan;
 	private Marker userMarker;
-	//
+	// test
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
