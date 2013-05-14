@@ -9,51 +9,122 @@ import android.widget.Button;
 
 public class MainActivity extends Activity {
 
-	private Button viewEntriesButton;
-	private Button findWineryButton;
-	private Button messWithGit;
-	
-	// Sample comment
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		
-		/**
-		 * Initializes the view entries button. Takes user to screen with list of 
-		 * all of their previous entries.
-		 */
-		viewEntriesButton = (Button) findViewById(R.id.view_entries);
-		viewEntriesButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				// CLicking "view entries" button takes you to new screen with list
-				Intent entryListIntent = new Intent(MainActivity.this, ListActivity.class);
-				startActivity(entryListIntent);
-			}
-		});
-		
-		
-		/**
-		 * Initializes the find winery screen. Takes user to a map that will zoom
-		 * in on their location.
-		 */
-		findWineryButton = (Button) findViewById(R.id.find_winery);
-		findWineryButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent findWineryIntent = new Intent(MainActivity.this, MapActivity.class);
-				startActivity(findWineryIntent);
-			}
-		});
-	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
+	 @Override
+	    protected void onCreate(Bundle savedInstanceState) {
+	        super.onCreate(savedInstanceState);
+
+	        setContentView(R.layout.splash);     //displays the splashscreen image
+
+	        
+	        /**
+	         * Splash screen displays for 5 seconds and changes to the home screen
+	         */
+	        Thread logoTimer = new Thread() {
+	            public void run(){
+	                try{
+	                    int logoTimer = 0;
+	                    while(logoTimer < 5000){
+	                        sleep(100);
+	                        logoTimer = logoTimer +100;
+	                    };
+	                    startActivity(new Intent("android.intent.action.MAINN"));
+	                }
+	                 
+	                catch (InterruptedException e) {
+	                    // TODO Auto-generated catch block
+	                    e.printStackTrace();
+	                }
+	                 
+	                finally{
+	                    finish();
+	                }
+	            }
+	        };
+	         
+	        logoTimer.start();
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	    
+	        
+
+	    }
+        
+        
+        
+        
+        
+        
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
