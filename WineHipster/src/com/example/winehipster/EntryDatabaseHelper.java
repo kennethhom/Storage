@@ -3,7 +3,9 @@
  */
 package com.example.winehipster;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /**
@@ -11,6 +13,13 @@ import android.database.sqlite.SQLiteOpenHelper;
  *
  */
 public class EntryDatabaseHelper extends SQLiteOpenHelper {
+	public static final String DB_NAME = "entries.sqlite";
+	public static final int VERSION = 1;
+
+	public EntryDatabaseHelper(Context context) {
+		super(context, DB_NAME, null, VERSION);
+		// TODO Auto-generated constructor stub
+	}
 
 	/* (non-Javadoc)
 	 * @see android.database.sqlite.SQLiteOpenHelper#onCreate(android.database.sqlite.SQLiteDatabase)
