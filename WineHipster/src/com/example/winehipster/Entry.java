@@ -161,10 +161,6 @@ public class Entry {
    * the only thing it has to do is initialize the data fields of the class Entry to
    * a default value.
    */
-<<<<<<< HEAD
-  public Entry() {
-	  super();
-=======
   public Entry() 
   {
 	 this.vintage = -1;
@@ -184,7 +180,6 @@ public class Entry {
 	 this.db_key = -1;
 	 this.entry_date = null;
 	 this.photo = null;
->>>>>>> branch 'master' of ssh://git@github.com/avivkiss/WHIP_Scaffold.git
   }
   
   /**
