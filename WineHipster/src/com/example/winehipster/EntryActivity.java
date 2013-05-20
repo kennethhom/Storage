@@ -55,41 +55,6 @@ EditText textBox;
     
     public void onClick(View arg0){
     	
-    	switch(arg0.getId()){
-    	case R.id.bSQLUpdate:
-    		boolean diditwork= true;
-    		try{
-    		String name = sqlName.getText().toString();
-    		String hotness = sqlHotness.getText().toString();
-    		
-    		DBAdaptor entry = new DBAdaptor(EntryActivity.this);
-    		entry.open();
-    		entry.createEntry(name, hotness);
-    		entry.close();
-    		}
-    		catch (Exception e){
-    			diditwork = false;
-        		System.out.print("no nigga it didnt work");
-
-    		}
-    		finally{
-    			if(diditwork){
-    				Dialog d = new Dialog(this);
-    				d.setTitle("heck yea!");
-    				TextView tv = new TextView(this);
-    				tv.setText("sucess");
-    				d.setContentView(tv);
-    				d.show();
-    			}
-    		}
-    		break;
-    	case R.id.bSQLopenView:
-    		
-    		startActivity(new Intent("com.example.wineapp.SQLView"));
-    	
-    		break;
-    	}
-   
 
     }
 }

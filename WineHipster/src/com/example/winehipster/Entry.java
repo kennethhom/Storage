@@ -1,5 +1,12 @@
 package com.example.winehipster;
 
+import java.util.Date;
+import java.util.UUID;
+
+import android.location.Location;
+
+import com.google.android.gms.plus.model.people.Person.Image;
+
 /**
  * @author Kenneth
  *
@@ -232,5 +239,6 @@ public class Entry {
    * on if things will by default be saved in drafts or entries, this method
    * may want to change the Boolean is_draft.
    */
-  public Entry();
+  public Entry() {
+}
 } 
