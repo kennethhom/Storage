@@ -496,7 +496,7 @@ public void setPhoto(Image photo) {
    * may want to change the Boolean is_draft.
    */
   public Entry() {
-	  
+	  super();
   }
 
 
