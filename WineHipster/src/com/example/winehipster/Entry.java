@@ -1,7 +1,7 @@
 package com.example.winehipster;
 
 import java.util.Date;
-import java.util.UUID;
+
 
 import android.location.Location;
 
@@ -15,9 +15,7 @@ import com.google.android.gms.plus.model.people.Person.Image;
 /*
  * The Entry class will represent "entries" that the user has
  * entered into the Journal. It will contain all the items that the user
- * has entered with components stored in local variables. Further all 
- * validation of user input happens inside this class, but will throw 
- * exceptions that should be cought by the calling class.  
+ * has entered with components stored in local variables.  
  *
  * Note: In the actual implementation this will have to be a nested class
  * so that Journal can access it's private variables. 
@@ -36,8 +34,6 @@ public class Entry {
    *
    * The values stored here should map _directly_ to the table in the database.
    *
-   * Note: When I say validation or error checking, I mean checking to make
-   * sure that the value is within the proper range.
    */
 
   /*
@@ -46,10 +42,6 @@ public class Entry {
    * take place in the future. After a quick google search, it seems reasonable
    * to limit these values to 1700 to the present day. If the value entered
    * is negative or out of range and exception is thrown. 
-   *
-   * Settter: yes
-   * Getter:  yes
-   * Throws Exception: yes
    */
   private int vintage;
 
@@ -60,314 +52,36 @@ public class Entry {
    * that indicated no rating has been set. If the value supplied is out
    * of range an exception is thrown.
    * 
-   * Setter: yes
-   * Getter: yes
-   * Throws Exception: yes
    */
   private int rating;
 
   /*
    * Description: This is the price it should be displayed with precision of
-   * 2 for the cents, along with a $. Value must be positive, throws an 
-   * exception if the value is negative.
-   * 
-   * Setter: yes
-   * Getter: yes
-   * Throws Exception: yes
+   * 2 for the cents, along with a $. Value must be positive.
    */
   private float price;
 
   /*
    * Description: This is the alcohol, it is also a value that should display
-   * with two decimal points. Can not be negative, exception if it is.
-   * 
-   * Setter: yes
-   * Getter: yes
-   * Throws Exception: yes
+   * with two decimal points. 
    */
   private float alcohol_content;
 
-  /**
- * @return the vintage
- */
-public int getVintage() {
-	return vintage;
-}
+ 
 
-
-/**
- * @param vintage the vintage to set
- */
-public void setVintage(int vintage) {
-	this.vintage = vintage;
-}
-
-
-/**
- * @return the rating
- */
-public int getRating() {
-	return rating;
-}
-
-
-/**
- * @param rating the rating to set
- */
-public void setRating(int rating) {
-	this.rating = rating;
-}
-
-
-/**
- * @return the price
- */
-public float getPrice() {
-	return price;
-}
-
-
-/**
- * @param price the price to set
- */
-public void setPrice(float price) {
-	this.price = price;
-}
-
-
-/**
- * @return the type
- */
-public String getType() {
-	return type;
-}
-
-
-/**
- * @param type the type to set
- */
-public void setType(String type) {
-	this.type = type;
-}
-
-
-/**
- * @return the country_region
- */
-public String getCountry_region() {
-	return country_region;
-}
-
-
-/**
- * @param country_region the country_region to set
- */
-public void setCountry_region(String country_region) {
-	this.country_region = country_region;
-}
-
-
-/**
- * @return the serving_temperature
- */
-public String getServing_temperature() {
-	return serving_temperature;
-}
-
-
-/**
- * @param serving_temperature the serving_temperature to set
- */
-public void setServing_temperature(String serving_temperature) {
-	this.serving_temperature = serving_temperature;
-}
-
-
-/**
- * @return the appearance
- */
-public String getAppearance() {
-	return appearance;
-}
-
-
-/**
- * @param appearance the appearance to set
- */
-public void setAppearance(String appearance) {
-	this.appearance = appearance;
-}
-
-
-/**
- * @return the aroma
- */
-public String getAroma() {
-	return aroma;
-}
-
-
-/**
- * @param aroma the aroma to set
- */
-public void setAroma(String aroma) {
-	this.aroma = aroma;
-}
-
-
-/**
- * @return the taste
- */
-public String getTaste() {
-	return taste;
-}
-
-
-/**
- * @param taste the taste to set
- */
-public void setTaste(String taste) {
-	this.taste = taste;
-}
-
-
-/**
- * @return the paired_with
- */
-public String getPaired_with() {
-	return paired_with;
-}
-
-
-/**
- * @param paired_with the paired_with to set
- */
-public void setPaired_with(String paired_with) {
-	this.paired_with = paired_with;
-}
-
-
-/**
- * @return the opinion
- */
-public String getOpinion() {
-	return opinion;
-}
-
-
-/**
- * @param opinion the opinion to set
- */
-public void setOpinion(String opinion) {
-	this.opinion = opinion;
-}
-
-
-/**
- * @return the is_draft
- */
-public Boolean getIs_draft() {
-	return is_draft;
-}
-
-
-/**
- * @param is_draft the is_draft to set
- */
-public void setIs_draft(Boolean is_draft) {
-	this.is_draft = is_draft;
-}
-
-
-/**
- * @return the entry_location
- */
-public Location getEntry_location() {
-	return entry_location;
-}
-
-
-/**
- * @param entry_location the entry_location to set
- */
-public void setEntry_location(Location entry_location) {
-	this.entry_location = entry_location;
-}
-
-
-/**
- * @return the db_key
- */
-public UUID getDb_key() {
-	return db_key;
-}
-
-
-/**
- * @param db_key the db_key to set
- */
-public void setDb_key(UUID db_key) {
-	this.db_key = db_key;
-}
-
-
-/**
- * @return the entry_date
- */
-public Date getEntry_date() {
-	return entry_date;
-}
-
-
-/**
- * @param entry_date the entry_date to set
- */
-public void setEntry_date(Date entry_date) {
-	this.entry_date = entry_date;
-}
-
-
-/**
- * @return the photo
- */
-public Image getPhoto() {
-	return photo;
-}
-
-
-/**
- * @param photo the photo to set
- */
-public void setPhoto(Image photo) {
-	this.photo = photo;
-}
-
-
-/*
+  /*
    * Description: This is the name of the wine.
-   * 
-   * Setter: yes
-   * Getter: yes
-   * Throws Exception: no
    */
   private String wine;
 
   /*
    * Description: This is the type of the wine (red, white, Rose etc..).
-   * 
-   * Setter: yes
-   * Getter: yes
-   * Throws Exception: no
    */
   private String type;
 
   /*
    * Description: This is the place of origination for the wine. No validation
    * is done.
-   * 
-   * Setter: yes
-   * Getter: yes
-   * Throws Exception: no
    */
   private String country_region;
 
@@ -375,57 +89,33 @@ public void setPhoto(Image photo) {
    * Description: Serving temperature there should only be two 
    * options here: chilled or room temp. User must choose one, so no 
    * error checking.
-   * 
-   * Setter: yes
-   * Getter: yes
-   * Throws Exception: no
    */
   private String serving_temperature;
 
   /*
    * Description: This is the way that the wine looks, no validation.
-   * 
-   * Setter: yes
-   * Getter: yes
-   * Throws Exception: no
    */
   private String appearance;
 
   /*
    * Description: Way the wine smells, no validation.
-   * 
-   * Setter: yes
-   * Getter: yes
-   * Throws Exception: no
    */
   private String aroma;
 
   /*
    * Description: Way the wine tastes, no validation.
-   * 
-   * Setter: yes
-   * Getter: yes
-   * Throws Exception: no
    */
   private String taste;
 
   /*
    * Description: This is a field where the _user_ can enter food
    * that goes well with the wine. No validation.
-   * 
-   * Setter: yes
-   * Getter: yes
-   * Throws Exception: no
    */
   private String paired_with;
 
   /*
    * Description: This is a place where the user can store how they felt about
    * the wine in their own words.
-   * 
-   * Setter: yes
-   * Getter: yes
-   * Throws Exception: no
    */
   private String opinion;
 
@@ -435,21 +125,13 @@ public void setPhoto(Image photo) {
    * This will be used in the Journal class where a SQL query where find all
    * the entries for the view based on this bool. So when the entry screen
    * saves or save draft is chosen this needs to be changed accordingly. 
-   * 
-   * Setter: yes
-   * Getter: yes
-   * Throws Exception: no
    */
   private Boolean is_draft;
 
   /*
    * Description: This should be found automatically when the entry is created
-   * using the android geolocation API. If no location can be found then 
+   * using the android geo-location API. If no location can be found then 
    * this is set to NULL and no location will be displayed. 
-   * 
-   * Setter: no
-   * Getter: yes
-   * Throws Exception: no
    */
   private Location entry_location;
 
@@ -457,47 +139,304 @@ public void setPhoto(Image photo) {
    * Description: This is the unique key generated in the constructor. It
    * is not shown to the user and should never be changed. This is the 
    * way the database knows which entry is which.
-   * 
-   * Setter: no
-   * Getter: yes
-   * Throws Exception: no
    */
-  private UUID db_key;
+  private long db_key;
 
   /*
    * Description: This is the date that the entry was started. This is to
    * be automatically retrieved from the system and not modified.
-   * 
-   * Setter: no
-   * Getter: yes
-   * Throws Exception: no
    */
   private Date entry_date;
 
   /*
    * Description: This is the photo that the user can optionally take of
-   * the wine. It will be downscaled (probably) and stored in the SQL 
+   * the wine. It will be down-scaled (probably) and stored in the SQL 
    * database. No validation.
-   * 
-   * Setter: yes
-   * Getter: yes
-   * Throws Exception: no
    */
   private Image photo;
   
 
   /*
    * This is the public constructor for the Entry class. Upon instantiation
-   * the only thing it has to do is generate a universally unique ID (UID).
-   * The UUID is used as the primary key for storage inside the database, 
-   * although the database code is not in this class, we need the UID so that
-   * we can identify the objecy for updates to the database. Also, depending 
-   * on if things will by default be saved in drafts or entries, this method
-   * may want to change the Boolean is_draft.
+   * the only thing it has to do is initialize the data fields of the class Entry to
+   * a default value.
    */
-  public Entry() {
-	  
+  public Entry() 
+  {
+	 this.vintage = -1;
+	 this.rating = -1;
+	 this.alcohol_content = (float) -1.0;
+	 this.wine = null;
+	 this.type = null;
+	 this.country_region = null;
+	 this.serving_temperature = null;
+	 this.appearance = null;
+	 this.aroma = null;
+	 this.taste = null;
+	 this.paired_with = null;
+	 this.opinion = null;
+	 this.is_draft = false;
+	 this.entry_location = null;
+	 this.db_key = -1;
+	 this.entry_date = null;
+	 this.photo = null;
   }
+  
+  /**
+   * @return the vintage
+   */
+  public int getVintage() {
+  	return vintage;
+  }
+
+
+  /**
+   * @param vintage the vintage to set
+   */
+  public void setVintage(int vintage) {
+  	this.vintage = vintage;
+  }
+
+
+  /**
+   * @return the rating
+   */
+  public int getRating() {
+  	return rating;
+  }
+
+
+  /**
+   * @param rating the rating to set
+   */
+  public void setRating(int rating) {
+  	this.rating = rating;
+  }
+
+
+  /**
+   * @return the price
+   */
+  public float getPrice() {
+  	return price;
+  }
+
+
+  /**
+   * @param price the price to set
+   */
+  public void setPrice(float price) {
+  	this.price = price;
+  }
+
+
+  /**
+   * @return the type
+   */
+  public String getType() {
+  	return type;
+  }
+
+
+  /**
+   * @param type the type to set
+   */
+  public void setType(String type) {
+  	this.type = type;
+  }
+
+
+  /**
+   * @return the country_region
+   */
+  public String getCountry_region() {
+  	return country_region;
+  }
+
+
+  /**
+   * @param country_region the country_region to set
+   */
+  public void setCountry_region(String country_region) {
+  	this.country_region = country_region;
+  }
+
+
+  /**
+   * @return the serving_temperature
+   */
+  public String getServing_temperature() {
+  	return serving_temperature;
+  }
+
+
+  /**
+   * @param serving_temperature the serving_temperature to set
+   */
+  public void setServing_temperature(String serving_temperature) {
+  	this.serving_temperature = serving_temperature;
+  }
+
+
+  /**
+   * @return the appearance
+   */
+  public String getAppearance() {
+  	return appearance;
+  }
+
+
+  /**
+   * @param appearance the appearance to set
+   */
+  public void setAppearance(String appearance) {
+  	this.appearance = appearance;
+  }
+
+
+  /**
+   * @return the aroma
+   */
+  public String getAroma() {
+  	return aroma;
+  }
+
+
+  /**
+   * @param aroma the aroma to set
+   */
+  public void setAroma(String aroma) {
+  	this.aroma = aroma;
+  }
+
+
+  /**
+   * @return the taste
+   */
+  public String getTaste() {
+  	return taste;
+  }
+
+
+  /**
+   * @param taste the taste to set
+   */
+  public void setTaste(String taste) {
+  	this.taste = taste;
+  }
+
+
+  /**
+   * @return the paired_with
+   */
+  public String getPaired_with() {
+  	return paired_with;
+  }
+
+
+  /**
+   * @param paired_with the paired_with to set
+   */
+  public void setPaired_with(String paired_with) {
+  	this.paired_with = paired_with;
+  }
+
+
+  /**
+   * @return the opinion
+   */
+  public String getOpinion() {
+  	return opinion;
+  }
+
+
+  /**
+   * @param opinion the opinion to set
+   */
+  public void setOpinion(String opinion) {
+  	this.opinion = opinion;
+  }
+
+
+  /**
+   * @return the is_draft
+   */
+  public Boolean getIs_draft() {
+  	return is_draft;
+  }
+
+
+  /**
+   * @param is_draft the is_draft to set
+   */
+  public void setIs_draft(Boolean is_draft) {
+  	this.is_draft = is_draft;
+  }
+
+
+  /**
+   * @return the entry_location
+   */
+  public Location getEntry_location() {
+  	return entry_location;
+  }
+
+
+  /**
+   * @param entry_location the entry_location to set
+   */
+  public void setEntry_location(Location entry_location) {
+  	this.entry_location = entry_location;
+  }
+
+
+  /**
+   * @return the db_key
+   */
+  public long getDb_key() {
+  	return db_key;
+  }
+
+
+  /**
+   * @param db_key the db_key to set
+   */
+  public void setDb_key(int db_key) {
+  	this.db_key = db_key;
+  }
+
+
+  /**
+   * @return the entry_date
+   */
+  public Date getEntry_date() {
+  	return entry_date;
+  }
+
+
+  /**
+   * @param entry_date the entry_date to set
+   */
+  public void setEntry_date(Date entry_date) {
+  	this.entry_date = entry_date;
+  }
+
+
+  /**
+   * @return the photo
+   */
+  public Image getPhoto() {
+  	return photo;
+  }
+
+
+  /**
+   * @param photo the photo to set
+   */
+  public void setPhoto(Image photo) {
+  	this.photo = photo;
+  }
+
 
 
 /**
