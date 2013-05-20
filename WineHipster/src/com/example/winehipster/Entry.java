@@ -87,7 +87,263 @@ public class Entry {
    */
   private float alcohol_content;
 
-  /*
+  /**
+ * @return the vintage
+ */
+public int getVintage() {
+	return vintage;
+}
+
+
+/**
+ * @param vintage the vintage to set
+ */
+public void setVintage(int vintage) {
+	this.vintage = vintage;
+}
+
+
+/**
+ * @return the rating
+ */
+public int getRating() {
+	return rating;
+}
+
+
+/**
+ * @param rating the rating to set
+ */
+public void setRating(int rating) {
+	this.rating = rating;
+}
+
+
+/**
+ * @return the price
+ */
+public float getPrice() {
+	return price;
+}
+
+
+/**
+ * @param price the price to set
+ */
+public void setPrice(float price) {
+	this.price = price;
+}
+
+
+/**
+ * @return the type
+ */
+public String getType() {
+	return type;
+}
+
+
+/**
+ * @param type the type to set
+ */
+public void setType(String type) {
+	this.type = type;
+}
+
+
+/**
+ * @return the country_region
+ */
+public String getCountry_region() {
+	return country_region;
+}
+
+
+/**
+ * @param country_region the country_region to set
+ */
+public void setCountry_region(String country_region) {
+	this.country_region = country_region;
+}
+
+
+/**
+ * @return the serving_temperature
+ */
+public String getServing_temperature() {
+	return serving_temperature;
+}
+
+
+/**
+ * @param serving_temperature the serving_temperature to set
+ */
+public void setServing_temperature(String serving_temperature) {
+	this.serving_temperature = serving_temperature;
+}
+
+
+/**
+ * @return the appearance
+ */
+public String getAppearance() {
+	return appearance;
+}
+
+
+/**
+ * @param appearance the appearance to set
+ */
+public void setAppearance(String appearance) {
+	this.appearance = appearance;
+}
+
+
+/**
+ * @return the aroma
+ */
+public String getAroma() {
+	return aroma;
+}
+
+
+/**
+ * @param aroma the aroma to set
+ */
+public void setAroma(String aroma) {
+	this.aroma = aroma;
+}
+
+
+/**
+ * @return the taste
+ */
+public String getTaste() {
+	return taste;
+}
+
+
+/**
+ * @param taste the taste to set
+ */
+public void setTaste(String taste) {
+	this.taste = taste;
+}
+
+
+/**
+ * @return the paired_with
+ */
+public String getPaired_with() {
+	return paired_with;
+}
+
+
+/**
+ * @param paired_with the paired_with to set
+ */
+public void setPaired_with(String paired_with) {
+	this.paired_with = paired_with;
+}
+
+
+/**
+ * @return the opinion
+ */
+public String getOpinion() {
+	return opinion;
+}
+
+
+/**
+ * @param opinion the opinion to set
+ */
+public void setOpinion(String opinion) {
+	this.opinion = opinion;
+}
+
+
+/**
+ * @return the is_draft
+ */
+public Boolean getIs_draft() {
+	return is_draft;
+}
+
+
+/**
+ * @param is_draft the is_draft to set
+ */
+public void setIs_draft(Boolean is_draft) {
+	this.is_draft = is_draft;
+}
+
+
+/**
+ * @return the entry_location
+ */
+public Location getEntry_location() {
+	return entry_location;
+}
+
+
+/**
+ * @param entry_location the entry_location to set
+ */
+public void setEntry_location(Location entry_location) {
+	this.entry_location = entry_location;
+}
+
+
+/**
+ * @return the db_key
+ */
+public UUID getDb_key() {
+	return db_key;
+}
+
+
+/**
+ * @param db_key the db_key to set
+ */
+public void setDb_key(UUID db_key) {
+	this.db_key = db_key;
+}
+
+
+/**
+ * @return the entry_date
+ */
+public Date getEntry_date() {
+	return entry_date;
+}
+
+
+/**
+ * @param entry_date the entry_date to set
+ */
+public void setEntry_date(Date entry_date) {
+	this.entry_date = entry_date;
+}
+
+
+/**
+ * @return the photo
+ */
+public Image getPhoto() {
+	return photo;
+}
+
+
+/**
+ * @param photo the photo to set
+ */
+public void setPhoto(Image photo) {
+	this.photo = photo;
+}
+
+
+/*
    * Description: This is the name of the wine.
    * 
    * Setter: yes
@@ -240,5 +496,39 @@ public class Entry {
    * may want to change the Boolean is_draft.
    */
   public Entry() {
+	  
+  }
+
+
+/**
+ * @return the alcohol_content
+ */
+public float getAlcohol_content() {
+	return alcohol_content;
 }
+
+
+/**
+ * @param alcohol_content the alcohol_content to set
+ */
+public void setAlcohol_content(float alcohol_content) {
+	this.alcohol_content = alcohol_content;
+}
+
+
+/**
+ * @return the wine
+ */
+public String getWine() {
+	return wine;
+}
+
+
+/**
+ * @param wine the wine to set
+ */
+public void setWine(String wine) {
+	this.wine = wine;
+}
+
 } 
