@@ -4,8 +4,9 @@
 package com.example.winehipster;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.CursorWrapper;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /**
@@ -54,9 +55,57 @@ public class EntryDatabaseHelper extends SQLiteOpenHelper {
 	 * @see android.database.sqlite.SQLiteOpenHelper#onUpgrade(android.database.sqlite.SQLiteDatabase, int, int)
 	 */
 	@Override
-	public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2) {
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		// TODO Auto-generated method stub
 
 	}
 
+	public long insertEntry(Entry entry) {
+		
+		return 0; // stub, needs to be changed
+	}
+	
+	public long updateEntry(Entry entry) {
+		
+		return 0;
+	}
+	
+	public EntryCursor queryEntries() {
+		
+		
+		return null;
+	}
+	
+	public EntryCursor queryEntry(long id) {
+		
+		return null;
+	}
+	
+	public static class EntryCursor extends CursorWrapper {
+		
+		public EntryCursor(Cursor c) {
+			super(c);
+		}
+		
+		public Entry getEntry() {
+			
+			return null;
+		}
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
