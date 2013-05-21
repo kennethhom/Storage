@@ -36,7 +36,7 @@ EditText textBox;
         
         
        
-        sqlUpdate = (Button) findViewById(R.id.bSQLUpdate);
+        //sqlUpdate = (Button) findViewById(R.id.bSQLUpdate);
         sqlName = (EditText) findViewById(R.id.etSQLName);
         sqlHotness = (EditText) findViewById(R.id.etSQLHotness);
         
