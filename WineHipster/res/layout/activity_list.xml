@@ -1,18 +1,22 @@
-
-
-
-
-
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-   
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
-   android:orientation="vertical">
+    android:orientation="vertical" >
 
+    
 
+    <ScrollView 
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.33" >
 
-<TextView
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="418dp"
+            android:orientation="vertical" >
+            
+            <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,32 +35,206 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="hotness scale 1 to 10" />
+        android:text="Opinion" />
 
     <EditText
-        android:id="@+id/etSQLHotness"
+        android:id="@+id/etSQLOpinion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10" />
-
+    
+    
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Age" />
+        android:text="Vintage" />
+
+    <EditText
+        android:id="@+id/etSQLVintage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+    
+    
+    
+    
+    
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Type of Wine" />
+
+    <EditText
+        android:id="@+id/etSQLTypeOfWine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+    
+    
+    
+    
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rating" />
+
+    <EditText
+        android:id="@+id/etSQLRating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+    
+    
+    
+    
+    
+    
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price" />
+
+    <EditText
+        android:id="@+id/etSQLPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+    
+    
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Entry Date" />
+
+    <EditText
+        android:id="@+id/etSQLEntryDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+    
+    
+    
+    
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Appearance" />
+
+    <EditText
+        android:id="@+id/etSQLAppearance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+    
+    
+    
+    
+    
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Taste" />
+
+    <EditText
+        android:id="@+id/etSQLTaste"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+    
+    
+    
+    
+    
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aroma" />
+
+    <EditText
+        android:id="@+id/etSQLAroma"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+    
+    
+    
+    
+    
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Serving Temperature" />
+
+    <EditText
+        android:id="@+id/etSQLServingTemp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+    
+    
+    
+    
+    
+    
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Country" />
+
+    <EditText
+        android:id="@+id/etSQLCountry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+    
+    
+    
+    
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alcohol Content" />
+
+    <EditText
+        android:id="@+id/etSQLLevel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+    
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:text="Add Image" />
+    
 
     <Button
         android:id="@+id/bSQLUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="update sqlite database"
-        android:onClick="onClick" />
+        android:onClick="onClick"
+        android:text="update sqlite database" />
 
     <Button
         android:id="@+id/bSQLopenView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="View"
-        android:onClick="onClick" />
-    
-    </LinearLayout>
+        android:onClick="onClick"
+        android:text="View" />
+            
+            
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
