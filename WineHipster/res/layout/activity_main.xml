@@ -2,23 +2,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" 
-    android:background="@drawable/bg">
-
+    android:orientation="horizontal" 
+    android:background="@drawable/home">
+    
     <Button android:id="@+id/view_entries" 
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
         android:layout_weight="1"
         android:background="@drawable/custom_button"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:text="@string/view_entries"></Button>
+    
+   <!-- <ImageButton android:id="@+id/view_entries" 
+   		android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/button_icon"
+        android:background="@drawable/custom_button"
+        android:textSize="40sp"
+        android:text="@string/view_entries"></ImageButton>-->
+    
+   <!-- <TextView
+        android:id ="@+id/TextView1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight= ".5"
+        android:text=""/>-->
     
 	<Button android:id="@+id/find_winery"
 	    android:layout_width="fill_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
         android:layout_weight="1"
         android:background="@drawable/custom_button"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:text="@string/find_winery"></Button>
 	
 </LinearLayout>
