@@ -9,12 +9,14 @@
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:background="@drawable/custom_button"
         android:text="@string/view_entries"></Button>
     
 	<Button android:id="@+id/find_winery"
 	    android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:background="@drawable/custom_button"
         android:text="@string/find_winery"></Button>
 	
 </LinearLayout>
