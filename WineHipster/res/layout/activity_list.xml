@@ -4,11 +4,6 @@
     android:orientation="vertical"
     android:background="@drawable/bg" >
 
-	<LinearLayout
-      	android:layout_width="match_parent"
-      	android:layout_height="418dp"
-      	android:orientation="vertical" >
-
   		<EditText
       		android:id="@+id/etSQLName"
       		android:inputType="text"
@@ -148,14 +143,15 @@
 	        	android:layout_width="match_parent"
 	        	android:layout_height="418dp"
 	        	android:orientation="horizontal" >
-           
+			
 			    <Button
-			        android:id="@+id/btnAdd"
+			        android:id="@+id/bSQLPublish"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
 			        android:layout_weight="1"
-			        android:text="@string/Add_Image" />
-			
+			        android:onClick="onClick"
+			        android:text="@string/Publish" />
+			    
 			    <Button
 			        android:id="@+id/bSQLUpdate"
 			        android:layout_width="wrap_content"
@@ -165,12 +161,18 @@
 			        android:text="@string/update_database" />
 			
 			    <Button
-			        android:id="@+id/bSQLopenView"
+			        android:id="@+id/bSQLDelete"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
 			        android:layout_weight="1"
 			        android:onClick="onClick"
-			        android:text="@string/View" />
+			        android:text="@string/Delete" />
+			    
+			    <Button
+			        android:id="@+id/btnAdd"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_weight="1"
+			        android:text="@string/Add_Image" />
 			</LinearLayout>
-	</LinearLayout>
 </LinearLayout>

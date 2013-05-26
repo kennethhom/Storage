@@ -22,8 +22,9 @@
 	<string name="Serving_Temperature">Serving Temp </string>
 	<string name="Country">Country </string>
 	<string name="Alcohol_Content">Alcohol Content </string>
-	<string name="Add_Image">Add Photo </string>
+	<string name="Add_Image">Photo </string>
 	<string name="update_database">Save </string>
-	<string name="View">View </string>
+	<string name="Delete">Delete </string>
+	<string name="Publish">Publish </string>
 	
 </resources>
