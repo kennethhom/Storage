@@ -14,21 +14,6 @@
         android:textSize="30sp"
         android:text="@string/view_entries"></Button>
     
-   <!-- <ImageButton android:id="@+id/view_entries" 
-   		android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/button_icon"
-        android:background="@drawable/custom_button"
-        android:textSize="40sp"
-        android:text="@string/view_entries"></ImageButton>-->
-    
-   <!-- <TextView
-        android:id ="@+id/TextView1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight= ".5"
-        android:text=""/>-->
-    
 	<Button android:id="@+id/find_winery"
 	    android:layout_width="fill_parent"
         android:layout_height="wrap_content"
