@@ -9,21 +9,21 @@
 	<string name="fake_entry">Button Goes to Edit Journal Screen</string>
 	<string name="edit_message">Enter a message</string>
     
-	<string name="Name">Name:</string>
-	<string name="Opinion">Opinion:</string>
-	<string name="Vintage">Vintage Year:</string>
-	<string name="Type_of_Wine">Type of Wine:</string>
-	<string name="Rating">Rating:</string>
-	<string name="Price">Price:</string>
-	<string name="Entry_Date">Date of Entry:</string>
-	<string name="Appearance">Appearance:</string>
-	<string name="Taste">Taste:</string>
-	<string name="Aroma">Aroma:</string>
-	<string name="Serving_Temperature">Serving Temperature:</string>
-	<string name="Country">Country:</string>
-	<string name="Alcohol_Content">Alcohol Content:</string>
-	<string name="Add_Image">Add Photo</string>
-	<string name="update_database">Save</string>
-	<string name="View">View</string>
+	<string name="Title">Title: </string>
+	<string name="Opinion">Opinion </string>
+	<string name="Vintage">Vintage Year </string>
+	<string name="Type_of_Wine">Type of Wine </string>
+	<string name="Rating">Rating </string>
+	<string name="Price">Price </string>
+	<string name="Entry_Date">Date of Entry </string>
+	<string name="Appearance">Appearance </string>
+	<string name="Taste">Taste </string>
+	<string name="Aroma">Aroma </string>
+	<string name="Serving_Temperature">Serving Temp </string>
+	<string name="Country">Country </string>
+	<string name="Alcohol_Content">Alcohol Content </string>
+	<string name="Add_Image">Add Photo </string>
+	<string name="update_database">Save </string>
+	<string name="View">View </string>
 	
 </resources>
