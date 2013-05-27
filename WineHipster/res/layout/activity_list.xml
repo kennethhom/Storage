@@ -14,14 +14,6 @@
 
       		<requestFocus />
   		</EditText>
-
-	    <EditText
-	        android:id="@+id/etSQLOpinion"
-	        android:inputType="text"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:hint="@string/Opinion" 
-	        android:ems="10" />
 	
 	    <EditText
 	        android:id="@+id/etSQLTypeOfWine"
@@ -137,6 +129,14 @@
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:hint="@string/Country"
+		        android:ems="10" />
+		    
+			<EditText
+		        android:id="@+id/etSQLOpinion"
+		        android:inputType="text"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:hint="@string/Opinion" 
 		        android:ems="10" />
 		 
 			<LinearLayout
