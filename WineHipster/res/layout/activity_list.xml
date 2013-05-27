@@ -9,7 +9,7 @@
       		android:inputType="text"
       		android:layout_width="match_parent"
       		android:layout_height="wrap_content"
-      		android:text="@string/Title"
+      		android:hint="@string/Title"
       		android:ems="10" >
 
       		<requestFocus />
@@ -20,7 +20,7 @@
 	        android:inputType="text"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
-	        android:text="@string/Opinion" 
+	        android:hint="@string/Opinion" 
 	        android:ems="10" />
 	
 	    <EditText
@@ -28,7 +28,7 @@
 	        android:inputType="text"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
-	        android:text="@string/Type_of_Wine"
+	        android:hint="@string/Type_of_Wine"
 	        android:ems="10" />
 	
 	    <TableLayout
@@ -47,7 +47,7 @@
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
 			        android:layout_weight="1"
-			        android:text="@string/Vintage"
+			        android:hint="@string/Vintage"
 			        android:ems="10" />
 			
 			    <EditText
@@ -56,7 +56,7 @@
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
 			        android:layout_weight="1"
-			        android:text="@string/Price"
+			        android:hint="@string/Price"
 			        android:ems="10" />
 		    </TableRow>
 		    
@@ -70,7 +70,7 @@
 			        android:layout_width="match_parent"
 			        android:layout_height="wrap_content"
 			        android:layout_weight="1"
-			        android:text="@string/Rating"
+			        android:hint="@string/Rating"
 			        android:ems="10" />
 			
 			    <EditText
@@ -79,7 +79,7 @@
 			        android:layout_width="match_parent"
 			        android:layout_height="wrap_content"
 			        android:layout_weight="1"
-			        android:text="@string/Entry_Date"
+			        android:hint="@string/Entry_Date"
 			        android:ems="10" />
 		   </TableRow>
 		   
@@ -93,7 +93,7 @@
 			        android:layout_width="match_parent"
 			        android:layout_height="wrap_content"
 			        android:layout_weight="1"
-			        android:text="@string/Serving_Temperature"
+			        android:hint="@string/Serving_Temperature"
 			        android:ems="10" /> 
 			        
 			   	<EditText
@@ -102,7 +102,7 @@
 			        android:layout_width="match_parent"
 			        android:layout_height="wrap_content"
 			        android:layout_weight="1"
-			        android:text="@string/Alcohol_Content"
+			        android:hint="@string/Alcohol_Content"
 			        android:ems="10" />     
             </TableRow>
 		</TableLayout>
@@ -112,7 +112,7 @@
 		        android:inputType="text"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
-		        android:text="@string/Appearance"
+		        android:hint="@string/Appearance"
 		        android:ems="10" />
 		
 		    <EditText
@@ -120,7 +120,7 @@
 		        android:inputType="text"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
-		        android:text="@string/Taste"
+		        android:hint="@string/Taste"
 		        android:ems="10" />
 		
 		    <EditText
@@ -128,7 +128,7 @@
 		        android:inputType="text"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
-		        android:text="@string/Aroma"
+		        android:hint="@string/Aroma"
 		        android:ems="10" />
 		
 		    <EditText
@@ -136,7 +136,7 @@
 		        android:inputType="text"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
-		        android:text="@string/Country"
+		        android:hint="@string/Country"
 		        android:ems="10" />
 		 
 			<LinearLayout
