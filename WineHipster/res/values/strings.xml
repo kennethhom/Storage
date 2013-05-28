@@ -9,7 +9,7 @@
 	<string name="fake_entry">Button Goes to Edit Journal Screen</string>
 	<string name="edit_message">Enter a message</string>
     
-	<string name="Title">Title: </string>
+	<string name="Title">Title </string>
 	<string name="Opinion">Opinion </string>
 	<string name="Vintage">Vintage Year </string>
 	<string name="Type_of_Wine">Type of Wine </string>
