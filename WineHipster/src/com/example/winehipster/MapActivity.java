@@ -16,6 +16,7 @@ import android.location.LocationManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -36,6 +37,7 @@ public class MapActivity extends Activity implements OnCameraChangeListener,  On
 	private Set<MarkerOptions> results; 
 	private double lat, lng;
 	private HashMap urls;
+	Location lastUpdate;
 	// test
 	@SuppressLint("NewApi")
 	@Override
@@ -46,6 +48,7 @@ public class MapActivity extends Activity implements OnCameraChangeListener,  On
 		userIcon = R.drawable.yellow_point;
 		wineIcon = R.drawable.red_point;
 		urls = new HashMap();
+		lastUpdate = new Location("lastupdate");
 		
 		//Map not instantiated yet
 		if(theMap == null){
@@ -70,6 +73,8 @@ public class MapActivity extends Activity implements OnCameraChangeListener,  On
 		Location lastLoc = locMan.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 		lat = lastLoc.getLatitude();
 		lng = lastLoc.getLongitude();
+		lastUpdate.setLatitude(lat);
+		lastUpdate.setLongitude(lng);
 		
 		LatLng lastLatLng = new LatLng(lat, lng);
 		
@@ -97,11 +102,24 @@ public class MapActivity extends Activity implements OnCameraChangeListener,  On
 	
 	@Override
 	 public void onCameraChange(CameraPosition position) {
-	  new GetPlaces().execute();
+	  Location newLocation = new Location("newLocation");
+	  newLocation.setLatitude((float) position.target.latitude );
+	  newLocation.setLongitude((float) position.target.longitude );
+	  System.out.println((float) newLocation.distanceTo(lastUpdate));
+	  if (newLocation.distanceTo(lastUpdate) > 30000) {
+		  new GetPlaces().execute();
+		  lastUpdate = newLocation;
+	  }
 	 }
 
 
 	private class GetPlaces extends AsyncTask<Void,Void, HashSet<MarkerOptions>> {
+		@Override
+		protected void onCancelled() {
+			super.onCancelled();
+			Toast.makeText(getApplicationContext(), "Error loading data..", Toast.LENGTH_SHORT).show();
+		}
+
 		double cntr_long, cntr_lat;
 		@Override
 		protected void onPreExecute() {
@@ -125,7 +143,7 @@ public class MapActivity extends Activity implements OnCameraChangeListener,  On
 		    
 		    Yelp yelp = new Yelp(consumerKey, consumerSecret, token, tokenSecret);
 		    String response = yelp.search("winery", cntr_long, cntr_lat);
-
+		    
 		    try {
 		      JSONObject json = new JSONObject(response);
 		      JSONArray businesses = json.getJSONArray("businesses");
@@ -157,6 +175,7 @@ public class MapActivity extends Activity implements OnCameraChangeListener,  On
 		    }
 		    catch (Exception e) {
 		    	e.printStackTrace(); 
+		    	cancel(true);
 		    	return null;
 		    }
 		return new_results;
