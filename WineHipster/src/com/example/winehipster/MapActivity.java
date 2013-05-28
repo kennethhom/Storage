@@ -1,38 +1,41 @@
 package com.example.winehipster;
 // hdhd
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.StatusLine;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.Menu;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnCameraChangeListener;
+import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapActivity extends Activity {
+public class MapActivity extends Activity implements OnCameraChangeListener,  OnInfoWindowClickListener {
 	private int userIcon, wineIcon;
 	private GoogleMap theMap;
 	private LocationManager locMan;
 	private Marker userMarker;
+	private Set<MarkerOptions> results; 
+	private double lat, lng;
+	private HashMap urls;
 	// test
 	@SuppressLint("NewApi")
 	@Override
@@ -42,15 +45,18 @@ public class MapActivity extends Activity {
 		
 		userIcon = R.drawable.yellow_point;
 		wineIcon = R.drawable.red_point;
+		urls = new HashMap();
 		
 		//Map not instantiated yet
 		if(theMap == null){
 			theMap = ((MapFragment)getFragmentManager().findFragmentById(R.id.the_map)).getMap();
+			theMap.setOnCameraChangeListener(this);
+			theMap.setOnInfoWindowClickListener(this);
 			System.out.println("MAP DONT WORK");
 		}
 		
 		if(theMap != null){
-			theMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+			theMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 			updatePlaces();
 		}
 	}
@@ -62,8 +68,8 @@ public class MapActivity extends Activity {
 		
 		// Retrieve the user's last recorded location
 		Location lastLoc = locMan.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-		double lat = lastLoc.getLatitude();
-		double lng = lastLoc.getLongitude();
+		lat = lastLoc.getLatitude();
+		lng = lastLoc.getLongitude();
 		
 		LatLng lastLatLng = new LatLng(lat, lng);
 		
@@ -80,67 +86,129 @@ public class MapActivity extends Activity {
 			.snippet("Your last recorded location"));
 		
 		// Camera centers at your location
-		theMap.animateCamera(CameraUpdateFactory.newLatLng(lastLatLng), 3000, null);
-	
-		String placesSearchStr = "https://maps.googleapis.com/maps/api/place/nearbysearch/" +
-				"json?location="+lat+","+lng+
-				"&radius=1000&sensor=true" +
-				"&types=food" +
-				"&key=AIzaSyAemyzAK19nxjFynNPKBykglWaUoUNFZSg";
-	}
-	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-
-}
-
-class GetPlaces extends AsyncTask<String, Void, String> {	
-	@Override
-	protected String doInBackground(String... placesURL){
-		StringBuilder placesBuilder = new StringBuilder();
+		theMap.moveCamera(CameraUpdateFactory.newLatLng(lastLatLng));
 		
-		// process search parameter string(s)
-		for(String placeSearchURL : placesURL){
-			HttpClient placesClient = new DefaultHttpClient();
-			
-			try {
-				// Create an Http Get object
-				HttpGet placesGet = new HttpGet(placeSearchURL);
-				
-				// Retrieving an HTTP Response
-				HttpResponse placesResponse = placesClient.execute(placesGet);
-				
-				// Retrieve the status line. Check for positive response
-				StatusLine placeSearchStatus = placesResponse.getStatusLine();
-				
-				// Can only continue if 200 "OK" status code
-				if(placeSearchStatus.getStatusCode() == 200) {
-					HttpEntity placesEntity = placesResponse.getEntity();
-					
-					// Retrieve the content of the response
-					InputStream placesContent = placesEntity.getContent();
-					
-					// Create reader for stream
-					InputStreamReader placesInput = new InputStreamReader(placesContent);
-					
-					// Carry out input Stream processing using Buffered Reader
-					BufferedReader placesReader = new BufferedReader(placesInput);
-					
-					String lineIn;
-					while((lineIn = placesReader.readLine()) != null){
-						placesBuilder.append(lineIn);
-					}
+		// fetch results
+		results = new HashSet<MarkerOptions>();
+//		Toast.makeText(getApplicationContext(), "Loading data..", Toast.LENGTH_SHORT).show();
+		new GetPlaces().execute();
+		
+	}
+	
+	@Override
+	 public void onCameraChange(CameraPosition position) {
+	  new GetPlaces().execute();
+	 }
+
+
+	private class GetPlaces extends AsyncTask<Void,Void, HashSet<MarkerOptions>> {
+		double cntr_long, cntr_lat;
+		@Override
+		protected void onPreExecute() {
+			// TODO Auto-generated method stub
+			super.onPreExecute();
+			cntr_long = theMap.getCameraPosition().target.latitude;
+			cntr_lat = theMap.getCameraPosition().target.longitude;
+//			System.out.println("long is: " + cntr_long + "lat is: " +  cntr_lat);
+		}
+
+		@Override
+		
+		
+		protected HashSet<MarkerOptions> doInBackground(Void... arg0) {
+			String consumerKey = "ZWkxa7xlh2CoY9XEnP0JQg";
+		    String consumerSecret = "L40KoPcPzNguyMSbKn_mEuV3PWw";
+		    String token = "bP8bIc8mmMsyWAuxBD6queHqsrA94TXm";
+		    String tokenSecret = "U6ne01kF0RHTTPFMy5WGWWJg7_0";
+		    
+		    HashSet<MarkerOptions> new_results = new HashSet<MarkerOptions>();
+		    
+		    Yelp yelp = new Yelp(consumerKey, consumerSecret, token, tokenSecret);
+		    String response = yelp.search("winery", cntr_long, cntr_lat);
+
+		    try {
+		      JSONObject json = new JSONObject(response);
+		      JSONArray businesses = json.getJSONArray("businesses");
+
+		      int count = businesses.length();
+		      for (int i = 0; i < count; i++) {
+		        JSONObject current = businesses.getJSONObject(i);
+
+//		        System.out.println(current.getString("name"));
+//		        System.out.println(current.getString("phone"));
+
+		        JSONObject location = current.getJSONObject("location");
+		        JSONObject coors = location.getJSONObject("coordinate");
+		        
+//		        String formattedNumber = PhoneNumberUtils.formatNumber(current.getString("phone"));
+		        
+		        new_results.add(new MarkerOptions()
+				.position(new LatLng(coors.getDouble("latitude"),coors.getDouble("longitude")))
+				.title(current.getString("name"))
+				.snippet("Rating: "+ current.getString("rating")));
+
+		        urls.put(current.get("name"), current.get("url"));
+		        
+//		        System.out.println(coors.getDouble("latitude"));
+//		        System.out.println(coors.getDouble("longitude"));
+
+//		        System.out.println("");
+		      }
+		    }
+		    catch (Exception e) {
+		    	e.printStackTrace(); 
+		    	return null;
+		    }
+		return new_results;
+		}
+		
+		@Override
+		protected void onPostExecute(HashSet<MarkerOptions> new_results) {
+			if(new_results == null)
+				return;
+			System.out.println(results.size() + " wineries loaded.");
+//			Toast.makeText(getApplicationContext(),(results.size() + " wineries loaded"), Toast.LENGTH_SHORT).show();
+			for(MarkerOptions item : new_results) {
+				boolean add = true;
+				for(MarkerOptions old: results) {
+					if (old.getTitle().equals(item.getTitle()))
+						add = false;
+				}
+				if(add) {
+					theMap.addMarker(item);
+					results.add(item);
 				}
 			}
-			catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
-		return placesBuilder.toString();
+	    }
 	}
+
+
+	@Override
+	public void onInfoWindowClick(Marker clicked) {
+		Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse((String) urls.get(clicked.getTitle())));
+		startActivity(browserIntent);
+	}
+
+
+	
 }
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -31,7 +31,7 @@ public class FirstPage extends Activity{
 				startActivity(entryListIntent);
 			}
 		});
-		
+	
 		
 		/**
 		 * Initializes the find winery screen. Takes user to a map that will zoom

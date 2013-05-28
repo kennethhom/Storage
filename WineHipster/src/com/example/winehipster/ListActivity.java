@@ -126,9 +126,9 @@ public class ListActivity extends Activity implements OnClickListener {
         
         
         
-        sqlView = (Button) findViewById( R.id.bSQLopenView);
-        sqlView.setOnClickListener(this);
-        sqlUpdate.setOnClickListener( this);
+//        sqlView = (Button) findViewById( R.id.bSQLopenView);
+//        sqlView.setOnClickListener(this);
+//        sqlUpdate.setOnClickListener( this);
         
 
     }
@@ -233,11 +233,11 @@ public class ListActivity extends Activity implements OnClickListener {
     			}
     		}
     		break;
-    	case R.id.bSQLopenView:
+//    	case R.id.bSQLopenView:
     		
-    		startActivity(new Intent("com.example.wineapp.SQLView"));
+//    		startActivity(new Intent("com.example.wineapp.SQLView"));
     	
-    		break;
+//    		break;
     	}
    
     }
