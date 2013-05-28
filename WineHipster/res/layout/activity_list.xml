@@ -2,7 +2,7 @@
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bg" >
+    android:background="@color/white1" >
 
   		<EditText
       		android:id="@+id/etSQLName"
@@ -10,6 +10,7 @@
       		android:layout_width="match_parent"
       		android:layout_height="wrap_content"
       		android:hint="@string/Title"
+      		android:textColorHint="@color/wine"
       		android:ems="10" >
 
       		<requestFocus />
@@ -21,6 +22,7 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:hint="@string/Type_of_Wine"
+	        android:textColorHint="@color/wine"
 	        android:ems="10" />
 	
 	    <TableLayout
@@ -40,6 +42,7 @@
 			        android:layout_height="wrap_content"
 			        android:layout_weight="1"
 			        android:hint="@string/Vintage"
+			        android:textColorHint="@color/wine"
 			        android:ems="10" />
 			
 			    <EditText
@@ -49,6 +52,7 @@
 			        android:layout_height="wrap_content"
 			        android:layout_weight="1"
 			        android:hint="@string/Price"
+			        android:textColorHint="@color/wine"
 			        android:ems="10" />
 		    </TableRow>
 		    
@@ -63,6 +67,7 @@
 			        android:layout_height="wrap_content"
 			        android:layout_weight="1"
 			        android:hint="@string/Rating"
+			        android:textColorHint="@color/wine"
 			        android:ems="10" />
 			
 			    <EditText
@@ -72,6 +77,7 @@
 			        android:layout_height="wrap_content"
 			        android:layout_weight="1"
 			        android:hint="@string/Entry_Date"
+			        android:textColorHint="@color/wine"
 			        android:ems="10" />
 		   </TableRow>
 		   
@@ -86,6 +92,7 @@
 			        android:layout_height="wrap_content"
 			        android:layout_weight="1"
 			        android:hint="@string/Serving_Temperature"
+			        android:textColorHint="@color/wine"
 			        android:ems="10" /> 
 			        
 			   	<EditText
@@ -95,6 +102,7 @@
 			        android:layout_height="wrap_content"
 			        android:layout_weight="1"
 			        android:hint="@string/Alcohol_Content"
+			        android:textColorHint="@color/wine"
 			        android:ems="10" />     
             </TableRow>
 		</TableLayout>
@@ -105,6 +113,7 @@
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:hint="@string/Appearance"
+		        android:textColorHint="@color/wine"
 		        android:ems="10" />
 		
 		    <EditText
@@ -113,6 +122,7 @@
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:hint="@string/Taste"
+		        android:textColorHint="@color/wine"
 		        android:ems="10" />
 		
 		    <EditText
@@ -121,6 +131,7 @@
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:hint="@string/Aroma"
+		        android:textColorHint="@color/wine"
 		        android:ems="10" />
 		
 		    <EditText
@@ -129,6 +140,7 @@
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:hint="@string/Country"
+		        android:textColorHint="@color/wine"
 		        android:ems="10" />
 		    
 			<EditText
@@ -137,6 +149,7 @@
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:hint="@string/Opinion" 
+		        android:textColorHint="@color/wine"
 		        android:ems="10" />
 		 
 			<LinearLayout
@@ -150,6 +163,7 @@
 			        android:layout_height="wrap_content"
 			        android:layout_weight="1"
 			        android:onClick="onClick"
+			        android:background="@drawable/custom_button"
 			        android:text="@string/Publish" />
 			    
 			    <Button
@@ -158,6 +172,7 @@
 			        android:layout_height="wrap_content"
 			        android:layout_weight="1"
 			        android:onClick="onClick"
+			        android:background="@drawable/custom_button"
 			        android:text="@string/update_database" />
 			
 			    <Button
@@ -166,6 +181,7 @@
 			        android:layout_height="wrap_content"
 			        android:layout_weight="1"
 			        android:onClick="onClick"
+			        android:background="@drawable/custom_button"
 			        android:text="@string/Delete" />
 			    
 			    <Button
@@ -173,6 +189,7 @@
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
 			        android:layout_weight="1"
+			        android:background="@drawable/custom_button"
 			        android:text="@string/Add_Image" />
 			</LinearLayout>
 </LinearLayout>
