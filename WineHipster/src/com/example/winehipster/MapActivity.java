@@ -47,15 +47,16 @@ public class MapActivity extends Activity implements OnCameraChangeListener,  On
 		
 		userIcon = R.drawable.yellow_point;
 		wineIcon = R.drawable.red_point;
-		urls = new HashMap();
-		lastUpdate = new Location("lastupdate");
 		
 		//Map not instantiated yet
 		if(theMap == null){
 			theMap = ((MapFragment)getFragmentManager().findFragmentById(R.id.the_map)).getMap();
 			theMap.setOnCameraChangeListener(this);
 			theMap.setOnInfoWindowClickListener(this);
+			theMap.setMyLocationEnabled(true);
 			System.out.println("MAP DONT WORK");
+			urls = new HashMap();
+			lastUpdate = new Location("lastupdate");
 		}
 		
 		if(theMap != null){
@@ -84,12 +85,12 @@ public class MapActivity extends Activity implements OnCameraChangeListener,  On
 			userMarker.remove();
 				
 		// Adds marker for current location
-		userMarker = theMap.addMarker(new MarkerOptions()
-			.position(lastLatLng)
-			.title("You are here")
-			.icon(BitmapDescriptorFactory.fromResource(userIcon))
-			.snippet("Your last recorded location"));
-		
+//		userMarker = theMap.addMarker(new MarkerOptions()
+//			.position(lastLatLng)
+//			.title("You are here")
+//			.icon(BitmapDescriptorFactory.fromResource(userIcon))
+//			.snippet("Your last recorded location"));
+//		
 		// Camera centers at your location
 		theMap.moveCamera(CameraUpdateFactory.newLatLng(lastLatLng));
 		
