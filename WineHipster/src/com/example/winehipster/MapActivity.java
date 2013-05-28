@@ -19,6 +19,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -39,14 +41,15 @@ public class MapActivity extends Activity implements OnCameraChangeListener,  On
 	private Set<MarkerOptions> results; 
 	private double lat, lng;
 	private HashMap urls;
-	Location lastUpdate;
+	private Location lastUpdate;
+	private ProgressBar progbar;
 	// test
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_map);
-		
+	
 		userIcon = R.drawable.yellow_point;
 		wineIcon = R.drawable.red_point;
 		
@@ -56,15 +59,17 @@ public class MapActivity extends Activity implements OnCameraChangeListener,  On
 			theMap.setOnCameraChangeListener(this);
 			theMap.setOnInfoWindowClickListener(this);
 			theMap.setMyLocationEnabled(true);
-			System.out.println("MAP DONT WORK");
+			progbar = (ProgressBar) findViewById(R.id.progress); 
 			urls = new HashMap();
 			lastUpdate = new Location("lastupdate");
 		}
 		
 		if(theMap != null){
 			theMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+			progbar.setVisibility(View.INVISIBLE);
 			updatePlaces();
 		}
+		
 	}
 
 	@Override
@@ -146,6 +151,7 @@ public class MapActivity extends Activity implements OnCameraChangeListener,  On
 		@Override
 		protected void onCancelled() {
 			super.onCancelled();
+			progbar.setVisibility(View.INVISIBLE);
 			Toast.makeText(getApplicationContext(), "Error loading data..", Toast.LENGTH_SHORT).show();
 		}
 
@@ -154,6 +160,7 @@ public class MapActivity extends Activity implements OnCameraChangeListener,  On
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
+			progbar.setVisibility(View.VISIBLE);
 			cntr_long = theMap.getCameraPosition().target.latitude;
 			cntr_lat = theMap.getCameraPosition().target.longitude;
 //			System.out.println("long is: " + cntr_long + "lat is: " +  cntr_lat);
@@ -189,10 +196,36 @@ public class MapActivity extends Activity implements OnCameraChangeListener,  On
 		        
 //		        String formattedNumber = PhoneNumberUtils.formatNumber(current.getString("phone"));
 		        
+		        // format stars
+		        int rating = (int) Float.parseFloat(current.getString("rating"));
+		        String rating_string;
+		        
+		        if(rating == 0) {
+		        	rating_string = "☆☆☆☆☆";
+		        }
+		        else if(rating == 1) {
+		        	rating_string = "★☆☆☆☆";
+		        }
+		        else if(rating == 2) {
+		        	rating_string = "★★☆☆☆";
+		        }
+		        else if(rating == 3) {
+		        	rating_string = "★★★☆☆";
+		        }
+		        else if(rating == 4) {
+		        	rating_string = "★★★★☆";
+		        }
+		        else if(rating == 5) {
+		        	rating_string = "★★★★★";
+		        }
+		        else {
+		        	rating_string = "";
+		        }
+		        
 		        new_results.add(new MarkerOptions()
 				.position(new LatLng(coors.getDouble("latitude"),coors.getDouble("longitude")))
 				.title(current.getString("name"))
-				.snippet("Rating: "+ current.getString("rating")));
+				.snippet(rating_string + " (" + current.getInt("review_count") + ")"));
 
 		        urls.put(current.get("name"), current.get("url"));
 		        
@@ -212,6 +245,7 @@ public class MapActivity extends Activity implements OnCameraChangeListener,  On
 		
 		@Override
 		protected void onPostExecute(HashSet<MarkerOptions> new_results) {
+			progbar.setVisibility(View.INVISIBLE);
 			if(new_results == null)
 				return;
 			System.out.println(results.size() + " wineries loaded.");
