@@ -88,7 +88,7 @@ public class MapActivity extends Activity implements OnCameraChangeListener,  On
 	       case R.id.hybrid :
 	    	   theMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 	    	   break;
-	       case R.id.satellite :
+	       case R.id.sattelite :
 	    	   theMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 	    	   break;
 	       case R.id.terrain :
@@ -270,9 +270,6 @@ public class MapActivity extends Activity implements OnCameraChangeListener,  On
 		Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse((String) urls.get(clicked.getTitle())));
 		startActivity(browserIntent);
 	}
-
-
-	
 }
 	
 	
