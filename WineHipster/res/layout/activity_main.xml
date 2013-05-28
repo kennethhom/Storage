@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|left"
         android:layout_weight="1"
-        android:background="@drawable/custom_button"
+        android:theme="@android:style/Theme"
         android:textSize="30sp"
         android:text="@string/view_entries"></Button>
     
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         android:layout_weight="1"
-        android:background="@drawable/custom_button"
+        android:theme="@android:style/Theme"
         android:textSize="30sp"
         android:text="@string/find_winery"></Button>
 	
