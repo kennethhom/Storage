@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/normal"
+          android:icon="@android:drawable/ic_menu_help"
+          android:title="Normal" />
+    <item android:id="@+id/hybrid"
+          android:icon="@android:drawable/ic_menu_manage"
+          android:title="Hybrid" />
+    <item android:id="@+id/sattelite"
+          android:icon="@android:drawable/ic_menu_manage"
+          android:title="Satellite" />
+    <item android:id="@+id/terrain"
+          android:icon="@android:drawable/ic_menu_manage"
+          android:title="Terrain" />
+</menu>

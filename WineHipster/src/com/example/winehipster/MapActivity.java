@@ -16,6 +16,9 @@ import android.location.LocationManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -23,7 +26,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnCameraChangeListener;
 import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
 import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -65,6 +67,32 @@ public class MapActivity extends Activity implements OnCameraChangeListener,  On
 		}
 	}
 
+	@Override
+	  public boolean onCreateOptionsMenu(Menu menu) {
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.map_menu, menu);
+	        return true;
+	  }
+
+	  @Override
+	  public boolean onOptionsItemSelected(MenuItem item) {
+	     switch (item.getItemId()) {
+	       case R.id.normal :
+	    	   theMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+	    	   break;
+	       case R.id.hybrid :
+	    	   theMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+	    	   break;
+	       case R.id.satellite :
+	    	   theMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+	    	   break;
+	       case R.id.terrain :
+	    	   theMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+	    	   break;
+	     }
+	     return super.onOptionsItemSelected(item);
+	  }
+	
 	// Display the user's location
 	private  void updatePlaces(){
 		
