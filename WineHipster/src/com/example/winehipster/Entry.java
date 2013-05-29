@@ -72,7 +72,7 @@ public class Entry {
   /*
    * Description: This is the name of the wine.
    */
-  private String wine;
+  private String _name;
 
   /*
    * Description: This is the type of the wine (red, white, Rose etc..).
@@ -90,7 +90,7 @@ public class Entry {
    * options here: chilled or room temp. User must choose one, so no 
    * error checking.
    */
-  private String serving_temperature;
+  private String serving_temp;
 
   /*
    * Description: This is the way that the wine looks, no validation.
@@ -133,27 +133,27 @@ public class Entry {
    * using the android geo-location API. If no location can be found then 
    * this is set to NULL and no location will be displayed. 
    */
-  private Location entry_location;
+  private String entry_location;
 
   /*
    * Description: This is the unique key generated in the constructor. It
    * is not shown to the user and should never be changed. This is the 
    * way the database knows which entry is which.
    */
-  private long db_key;
+  private int _id;
 
   /*
    * Description: This is the date that the entry was started. This is to
    * be automatically retrieved from the system and not modified.
    */
-  private Date entry_date;
+  private String entry_date;
 
   /*
    * Description: This is the photo that the user can optionally take of
    * the wine. It will be down-scaled (probably) and stored in the SQL 
    * database. No validation.
    */
-  private Image photo;
+  private byte[] _image;
   
 
   /*
@@ -161,26 +161,40 @@ public class Entry {
    * the only thing it has to do is initialize the data fields of the class Entry to
    * a default value.
    */
-  public Entry() 
-  {
-	 this.vintage = -1;
-	 this.rating = -1;
-	 this.alcohol_content = (float) -1.0;
-	 this.wine = null;
-	 this.type = null;
-	 this.country_region = null;
-	 this.serving_temperature = null;
-	 this.appearance = null;
-	 this.aroma = null;
-	 this.taste = null;
-	 this.paired_with = null;
-	 this.opinion = null;
-	 this.is_draft = false;
-	 this.entry_location = null;
-	 this.db_key = -1;
-	 this.entry_date = null;
-	 this.photo = null;
-  }
+  public Entry(int keyId, String name, String type, String country_region,String serving_temp, String appearance, String aroma,
+			 String taste, String paired_with, String opinion, float alcohol_content, float price,
+			 int vintage, int rating, boolean is_draft, String entry_location, String entry_date, byte[] image) {
+	  this._id = keyId;
+	  this._name = name;
+	  this._image = image;
+	  this.type = type;
+	  this.country_region = country_region;
+	  this.serving_temp = serving_temp;
+	  this.appearance = appearance;
+	  this.aroma = aroma;
+	  this.taste = taste;
+	  this.paired_with = paired_with;
+	  this.opinion = opinion;
+	  this.alcohol_content = alcohol_content;
+	  this.price = price;
+	  this.vintage = vintage;
+	  this.rating = rating;
+	  this.is_draft = is_draft;
+	  this.entry_location = entry_location;
+	  this.entry_date = entry_date;
+	  
+
+	 }
+//Empty constructor
+	 public Entry() {
+
+	 }
+	 
+	 public Entry(int keyId) {
+		  this._id = keyId;
+
+		 }
+
   
   /**
    * @return the vintage
@@ -266,7 +280,7 @@ public class Entry {
    * @return the serving_temperature
    */
   public String getServing_temperature() {
-  	return serving_temperature;
+  	return serving_temp;
   }
 
 
@@ -274,7 +288,7 @@ public class Entry {
    * @param serving_temperature the serving_temperature to set
    */
   public void setServing_temperature(String serving_temperature) {
-  	this.serving_temperature = serving_temperature;
+  	this.serving_temp = serving_temperature;
   }
 
 
@@ -377,7 +391,7 @@ public class Entry {
   /**
    * @return the entry_location
    */
-  public Location getEntry_location() {
+  public String getEntry_location() {
   	return entry_location;
   }
 
@@ -385,7 +399,7 @@ public class Entry {
   /**
    * @param entry_location the entry_location to set
    */
-  public void setEntry_location(Location entry_location) {
+  public void setEntry_location(String entry_location) {
   	this.entry_location = entry_location;
   }
 
@@ -393,23 +407,23 @@ public class Entry {
   /**
    * @return the db_key
    */
-  public long getDb_key() {
-  	return db_key;
+  public int getID() {
+  	return _id;
   }
 
 
   /**
    * @param db_key the db_key to set
    */
-  public void setDb_key(int db_key) {
-  	this.db_key = db_key;
+  public void setID(int db_key) {
+  	this._id = db_key;
   }
 
 
   /**
    * @return the entry_date
    */
-  public Date getEntry_date() {
+  public String getEntry_date() {
   	return entry_date;
   }
 
@@ -417,7 +431,7 @@ public class Entry {
   /**
    * @param entry_date the entry_date to set
    */
-  public void setEntry_date(Date entry_date) {
+  public void setEntry_date(String entry_date) {
   	this.entry_date = entry_date;
   }
 
@@ -425,16 +439,16 @@ public class Entry {
   /**
    * @return the photo
    */
-  public Image getPhoto() {
-  	return photo;
+  public byte[] getPhoto() {
+  	return _image;
   }
 
 
   /**
    * @param photo the photo to set
    */
-  public void setPhoto(Image photo) {
-  	this.photo = photo;
+  public void setPhoto(byte[] photo) {
+  	this._image = photo;
   }
 
 
@@ -459,7 +473,7 @@ public void setAlcohol_content(float alcohol_content) {
  * @return the wine
  */
 public String getWine() {
-	return wine;
+	return _name;
 }
 
 
@@ -467,7 +481,7 @@ public String getWine() {
  * @param wine the wine to set
  */
 public void setWine(String wine) {
-	this.wine = wine;
+	this._name = wine;
 }
 
 } 

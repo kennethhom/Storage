@@ -27,7 +27,7 @@ public class FirstPage extends Activity{
 			@Override
 			public void onClick(View v) {
 				// CLicking "view entries" button takes you to new screen with list
-				Intent entryListIntent = new Intent(FirstPage.this, ListActivity.class);
+				Intent entryListIntent = new Intent(FirstPage.this, SQLiteDemoActivity.class);
 				startActivity(entryListIntent);
 			}
 		});
